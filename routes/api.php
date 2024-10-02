@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\AddProductController;
+use App\Http\Controllers\Api\DiscountController;
 // use App\Http\Controllers\Api\DesignationController;
 /*
 |--------------------------------------------------------------------------
@@ -39,4 +40,12 @@ Route::controller(AddProductController::class)->group(function(){
     Route::get('addproduct/{addproduct}','show');
     Route::post('addproduct/{id}','update');
     Route::delete('addproduct/{addproduct}','destroy');
+});
+
+Route::controller(DiscountController::class)->group(function(){
+    Route::get('discount/index','index');
+    Route::post('discount/create','store');
+    Route::get('discount/{discount}','show');
+    Route::post('discount/{id}','update');
+    Route::delete('discount/{discount}','destroy');
 });
