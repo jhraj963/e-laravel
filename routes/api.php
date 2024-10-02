@@ -38,5 +38,5 @@ Route::controller(AddProductController::class)->group(function(){
     Route::post('addproduct/create','store');
     Route::get('addproduct/{addproduct}','show');
     Route::post('addproduct/{id}','update');
-    // Route::delete('product/{product}','destroy');
+    Route::delete('addproduct/{addproduct}','destroy');
 });
