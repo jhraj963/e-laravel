@@ -35,17 +35,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::controller(AddProductController::class)->group(function(){
-    Route::get('addproduct/index','index');
+    Route::get('addproduct','index');
     Route::post('addproduct/create','store');
     Route::get('addproduct/{addproduct}','show');
-    Route::post('addproduct/{id}','update');
+    Route::post('addproduct/edit/{id}','update');
     Route::delete('addproduct/{addproduct}','destroy');
 });
 
 Route::controller(DiscountController::class)->group(function(){
-    Route::get('discount/index','index');
+    Route::get('discount','index');
     Route::post('discount/create','store');
     Route::get('discount/{discount}','show');
-    Route::post('discount/{id}','update');
+    Route::post('discount/edit/{id}','update');
     Route::delete('discount/{discount}','destroy');
 });
