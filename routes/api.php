@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\AddProductController;
 use App\Http\Controllers\Api\DiscountController;
+use App\Http\Controllers\Api\salesEventController;
 // use App\Http\Controllers\Api\DesignationController;
 /*
 |--------------------------------------------------------------------------
@@ -48,4 +49,12 @@ Route::controller(DiscountController::class)->group(function(){
     Route::get('discount/{discount}','show');
     Route::post('discount/edit/{id}','update');
     Route::delete('discount/{discount}','destroy');
+});
+
+Route::controller(salesEventController::class)->group(function(){
+    Route::get('salesevent','index');
+    Route::post('salesevent/create','store');
+    Route::get('salesevent/{salesevent}','show');
+    Route::post('salesevent/edit/{id}','update');
+    Route::delete('salesevent/{salesevent}','destroy');
 });
