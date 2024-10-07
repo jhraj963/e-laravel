@@ -6,7 +6,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\AddProductController;
 use App\Http\Controllers\Api\DiscountController;
 use App\Http\Controllers\Api\salesEventController;
-// use App\Http\Controllers\Api\DesignationController;
+use App\Http\Controllers\Api\BlogController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -57,4 +57,12 @@ Route::controller(salesEventController::class)->group(function(){
     Route::get('salesevent/{salesevent}','show');
     Route::post('salesevent/edit/{id}','update');
     Route::delete('salesevent/{salesevent}','destroy');
+});
+
+Route::controller(BlogController::class)->group(function(){
+    Route::get('blog','index');
+    Route::post('blog/create','store');
+    Route::get('blog/{blog}','show');
+    Route::post('blog/edit/{id}','update');
+    Route::delete('blog/{blog}','destroy');
 });
