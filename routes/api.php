@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\AddProductController;
 use App\Http\Controllers\Api\DiscountController;
 use App\Http\Controllers\Api\salesEventController;
 use App\Http\Controllers\Api\BlogController;
+use App\Http\Controllers\Api\AllcustomerController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -65,4 +66,12 @@ Route::controller(BlogController::class)->group(function(){
     Route::get('blog/{blog}','show');
     Route::post('blog/edit/{id}','update');
     Route::delete('blog/{blog}','destroy');
+});
+
+Route::controller(AllcustomerController::class)->group(function(){
+    Route::get('allcustomer','index');
+    Route::post('allcustomer/create','store');
+    Route::get('allcustomer/{allcustomer}','show');
+    Route::post('allcustomer/edit/{id}','update');
+    Route::delete('allcustomer/{allcustomer}','destroy');
 });
