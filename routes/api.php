@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\DiscountController;
 use App\Http\Controllers\Api\salesEventController;
 use App\Http\Controllers\Api\BlogController;
 use App\Http\Controllers\Api\AllcustomerController;
+use App\Http\Controllers\Api\InventoryController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -74,4 +75,12 @@ Route::controller(AllcustomerController::class)->group(function(){
     Route::get('allcustomer/{allcustomer}','show');
     Route::post('allcustomer/edit/{id}','update');
     Route::delete('allcustomer/{allcustomer}','destroy');
+});
+
+Route::controller(InventoryController::class)->group(function(){
+    Route::get('inventory','index');
+    Route::post('inventory/create','store');
+    Route::get('inventory/{inventory}','show');
+    Route::post('inventory/edit/{id}','update');
+    Route::delete('inventory/{inventory}','destroy');
 });
