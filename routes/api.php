@@ -9,6 +9,9 @@ use App\Http\Controllers\Api\salesEventController;
 use App\Http\Controllers\Api\BlogController;
 use App\Http\Controllers\Api\AllcustomerController;
 use App\Http\Controllers\Api\InventoryController;
+use App\Http\Controllers\Api\AllorderController;
+use App\Http\Controllers\Api\Pagecontroller;
+use App\Http\Controllers\Api\FaqController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -83,4 +86,28 @@ Route::controller(InventoryController::class)->group(function(){
     Route::get('inventory/{inventory}','show');
     Route::post('inventory/edit/{id}','update');
     Route::delete('inventory/{inventory}','destroy');
+});
+
+Route::controller(AllorderController::class)->group(function(){
+    Route::get('allorder','index');
+    Route::post('allorder/create','store');
+    Route::get('allorder/{allorder}','show');
+    Route::post('allorder/edit/{id}','update');
+    Route::delete('allorder/{allorder}','destroy');
+});
+
+Route::controller(Pagecontroller::class)->group(function(){
+    Route::get('page','index');
+    Route::post('page/create','store');
+    Route::get('page/{page}','show');
+    Route::post('page/edit/{id}','update');
+    Route::delete('page/{page}','destroy');
+});
+
+Route::controller(FaqController::class)->group(function(){
+    Route::get('faq','index');
+    Route::post('faq/create','store');
+    Route::get('faq/{faq}','show');
+    Route::post('faq/edit/{id}','update');
+    Route::delete('faq/{faq}','destroy');
 });
