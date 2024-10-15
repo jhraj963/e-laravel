@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\InventoryController;
 use App\Http\Controllers\Api\AllorderController;
 use App\Http\Controllers\Api\Pagecontroller;
 use App\Http\Controllers\Api\FaqController;
+use App\Http\Controllers\Api\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -110,4 +111,12 @@ Route::controller(FaqController::class)->group(function(){
     Route::get('faq/{faq}','show');
     Route::post('faq/edit/{id}','update');
     Route::delete('faq/{faq}','destroy');
+});
+
+Route::controller(CategoryController::class)->group(function(){
+    Route::get('category','index');
+    Route::post('category/create','store');
+    Route::get('category/{category}','show');
+    Route::post('category/edit/{id}','update');
+    Route::delete('category/{category}','destroy');
 });

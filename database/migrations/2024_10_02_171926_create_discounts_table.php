@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('discounts', function (Blueprint $table) {
             $table->id();
-            $table->string('coupon', 100)->nullable()->default('text');
+            $table->string('eventname_id');
+            $table->string('coupon', 100);
             $table->decimal('discount', 5, 2)->nullable();
             $table->timestamps();
         });

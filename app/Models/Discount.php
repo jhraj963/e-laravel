@@ -9,5 +9,10 @@ class Discount extends Model
 {
     use HasFactory;
 
-    protected $fillable=['coupon', 'discount'];
+    protected $fillable=['eventname_id','coupon', 'discount'];
+
+    public function salesEvent()
+    {
+        return $this->belongsTo(SalesEvent::class, 'eventname_id');
+    }
 }

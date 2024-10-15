@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sales_events', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('eventname', 255)->nullable();
-            $table->date('startdate')->nullable();    // Add start date column
-            $table->date('enddate')->nullable();      // Add end date column
-            // $table->decimal('discount', 5, 2)->nullable();
+            $table->string('name'); // Category name field
+            $table->text('description')->nullable(); // Category description field (optional)
+            $table->enum('status', ['Active', 'Inactive'])->default('Active');
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sales_events');
+        Schema::dropIfExists('categories');
     }
 };
