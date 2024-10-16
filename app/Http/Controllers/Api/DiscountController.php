@@ -10,7 +10,7 @@ use App\Http\Controllers\Api\BaseController;
 class DiscountController extends BaseController
 {
     public function index(){
-        $data=Discount::with('SalesEvent')->get();
+        $data=Discount::with('salesevent')->get();
         return $this->sendResponse($data,"Discount data");
     }
 
