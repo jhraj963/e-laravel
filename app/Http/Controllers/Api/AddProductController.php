@@ -8,8 +8,18 @@ use App\Http\Controllers\Api\BaseController;
 
 class AddProductController extends BaseController
 {
-     public function index(){
-        $data=AddProduct::get();
+    public function index(Request $request){
+
+        $data=AddProduct::latest();
+        
+        if($request->featured){
+            $data=$data->where('is_featured',$request->featured);
+        }
+        if($request->recent){
+            $data=$data->take($request->recent);
+        }
+        $data=$data->get();
+
         return $this->sendResponse($data,"AddProduct data");
     }
 
