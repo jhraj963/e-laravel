@@ -9,11 +9,13 @@ use App\Models\Inventory;
 class InventoryController extends BaseController
 {
     public function index(){
-        $data=Inventory::get();
+        $data=Inventory::with('abc')->get();
         return $this->sendResponse($data,"Inventory data");
     }
 
     public function store(Request $request){
+
+
         $data=Inventory::create($request->all());
         return $this->sendResponse($data,"Inventory created successfully");
     }
@@ -22,6 +24,8 @@ class InventoryController extends BaseController
     }
 
     public function update(Request $request,$id){
+
+
 
         $data=Inventory::where('id',$id)->update($request->all());
         return $this->sendResponse($id,"Inventory updated successfully");

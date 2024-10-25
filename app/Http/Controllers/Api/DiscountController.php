@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api;
 
-
 use Illuminate\Http\Request;
 use App\Models\Discount;
 use App\Http\Controllers\Api\BaseController;
@@ -17,7 +16,6 @@ class DiscountController extends BaseController
     public function store(Request $request){
 
         $input=$request->all();
-
         $data=Discount::create($request->all());
         return $this->sendResponse($data,"Discount created successfully");
     }

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('inventories', function (Blueprint $table) {
             $table->id();
-            $table->string('product_name'); 
+            $table->string('product_id');
             $table->integer('current_stock')->nullable();
             $table->integer('reorder_level')->nullable();
             $table->timestamps();

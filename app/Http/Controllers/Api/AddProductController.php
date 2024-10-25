@@ -8,20 +8,20 @@ use App\Http\Controllers\Api\BaseController;
 
 class AddProductController extends BaseController
 {
-    public function index(Request $request){
+    public function index(Request $request) {
+    $query = AddProduct::with('category');
 
-        $data=AddProduct::latest();
-        
-        if($request->featured){
-            $data=$data->where('is_featured',$request->featured);
-        }
-        if($request->recent){
-            $data=$data->take($request->recent);
-        }
-        $data=$data->get();
-
-        return $this->sendResponse($data,"AddProduct data");
+    if ($request->featured) {
+        $query->where('is_featured', $request->featured);
     }
+    if ($request->recent) {
+        $query->take($request->recent);
+    }
+
+    $data = $query->get(); // Final get() after conditions
+
+    return $this->sendResponse($data, "AddProduct data retrieved successfully");
+}
 
     public function store(Request $request){
 
