@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\AllorderController;
 use App\Http\Controllers\Api\Pagecontroller;
 use App\Http\Controllers\Api\FaqController;
 use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\CustomerContorller;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -119,4 +120,12 @@ Route::controller(CategoryController::class)->group(function(){
     Route::get('category/{category}','show');
     Route::post('category/edit/{id}','update');
     Route::delete('category/{category}','destroy');
+});
+
+Route::controller(CustomerContorller::class)->group(function(){
+    Route::get('customer','index');
+    Route::post('customer/create','store');
+    Route::get('customer/{customer}','show');
+    Route::post('customer/edit/{id}','update');
+    Route::delete('customer/{customer}','destroy');
 });
