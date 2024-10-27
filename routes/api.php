@@ -13,7 +13,7 @@ use App\Http\Controllers\Api\AllorderController;
 use App\Http\Controllers\Api\Pagecontroller;
 use App\Http\Controllers\Api\FaqController;
 use App\Http\Controllers\Api\CategoryController;
-use App\Http\Controllers\Api\CustomerContorller;
+use App\Http\Controllers\Api\CustomerController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -33,6 +33,21 @@ Route::controller(AuthController::class)->group(function(){
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Route::controller(CustomerController::class)->group(function () {
+//     Route::post('cusregister', 'registerCustomer');
+//     Route::post('cuslogin', 'loginCustomer');
+// });
+
+Route::controller(CustomerController::class)->group(function () {
+    Route::post('cusregister', 'registerCustomer');
+    Route::post('cuslogin', 'loginCustomer');
+});
+
+// Route::middleware('auth:sanctum')->get('/customer', function (Request $request) {
+//     return $request->customer(); 
+// });
+
 // Route::controller(DesignationController::class)->group(function(){
 //     Route::get('designation','index');
 //     Route::get('designation/{designation}','show');
@@ -122,10 +137,10 @@ Route::controller(CategoryController::class)->group(function(){
     Route::delete('category/{category}','destroy');
 });
 
-Route::controller(CustomerContorller::class)->group(function(){
-    Route::get('customer','index');
-    Route::post('customer/create','store');
-    Route::get('customer/{customer}','show');
-    Route::post('customer/edit/{id}','update');
-    Route::delete('customer/{customer}','destroy');
-});
+// Route::controller(CustomerContorller::class)->group(function(){
+//     Route::get('customer','index');
+//     Route::post('customer/create','store');
+//     Route::get('customer/{customer}','show');
+//     Route::post('customer/edit/{id}','update');
+//     Route::delete('customer/{customer}','destroy');
+// });
