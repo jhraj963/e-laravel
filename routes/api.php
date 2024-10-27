@@ -44,9 +44,9 @@ Route::controller(CustomerController::class)->group(function () {
     Route::post('cuslogin', 'loginCustomer');
 });
 
-// Route::middleware('auth:sanctum')->get('/customer', function (Request $request) {
-//     return $request->customer(); 
-// });
+Route::middleware('auth:sanctum')->get('/customer', function (Request $request) {
+    return $request->customer();
+});
 
 // Route::controller(DesignationController::class)->group(function(){
 //     Route::get('designation','index');
