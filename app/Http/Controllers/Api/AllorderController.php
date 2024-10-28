@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class AllorderController extends BaseController
 {
     public function index(){
-        $data=Allorder::get();
+        $data=Allorder::with('customer')->get();
         return $this->sendResponse($data,"Allorder data");
     }
 
