@@ -14,6 +14,7 @@ use App\Http\Controllers\Api\Pagecontroller;
 use App\Http\Controllers\Api\FaqController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\CustomerController;
+use App\Http\Controllers\Api\ContactController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -137,10 +138,10 @@ Route::controller(CategoryController::class)->group(function(){
     Route::delete('category/{category}','destroy');
 });
 
-// Route::controller(CustomerContorller::class)->group(function(){
-//     Route::get('customer','index');
-//     Route::post('customer/create','store');
-//     Route::get('customer/{customer}','show');
-//     Route::post('customer/edit/{id}','update');
-//     Route::delete('customer/{customer}','destroy');
-// });
+Route::controller(ContactController::class)->group(function(){
+    Route::get('contact','index');
+    Route::post('contact/create','store');
+    Route::get('contact/{contact}','show');
+    Route::post('contact/edit/{id}','update');
+    Route::delete('contact/{contact}','destroy');
+});
