@@ -29,6 +29,13 @@ return new class extends Migration
             $table->date('shipping_date')->nullable(); // Shipping Date
             $table->unsignedBigInteger('shipping_method_id'); // Shipping Method ID
             $table->string('status')->default('pending'); // Order Status (default: pending)
+            $table->string('total_qty');
+            $table->string('cart_data');
+            $table->string('coupon_code');
+            $table->string('payment_method');
+            $table->string('transaction_id');
+            $table->string('notes');
+            $table->string('cancel_request');
             $table->timestamps();
             // Foreign Key constraint for customer_id and shipping_method_id
             // $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
