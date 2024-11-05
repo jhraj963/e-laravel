@@ -36,7 +36,7 @@ class CustomerController extends BaseController
     public function loginCustomer(Request $r):JsonResponse
     {
         if(Auth::attempt(['email' => $r->email, 'password' => $r->password])){
-            $customer=Auth::customer();
+            $customer=Auth::user();
             $data['token']=$customer->createToken('hosp')->plainTextToken;
             $data['data']=$customer;
             return $this->sendResponse($data,"Customer login successfully");
