@@ -45,6 +45,8 @@ Route::controller(CustomerController::class)->group(function () {
     Route::post('cuslogin', 'loginCustomer');
 });
 
+
+
 Route::middleware('auth:sanctum')->get('/customer', function (Request $request) {
     return $request->customer();
 });
