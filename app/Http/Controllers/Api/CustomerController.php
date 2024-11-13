@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 use Illuminate\Http\JsonResponse;
 use Validator;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class CustomerController extends BaseController
 {
@@ -33,15 +33,23 @@ class CustomerController extends BaseController
 
     }
 
-    public function loginCustomer(Request $r):JsonResponse
+    public function loginCustomer(Request $request)
     {
-        if(Auth::attempt(['email' => $r->email, 'password' => $r->password])){
-            $customer=Auth::user();
-            $data['token']=$customer->createToken('hosp')->plainTextToken;
-            $data['data']=$customer;
-            return $this->sendResponse($data,"Customer login successfully");
-        }else{
-            return $this->sendError(['error'=>'email or password is not correct'],"Unauthorized",400);
+        try{
+            $customer=Customer::where('email',$request->email)->first();
+            if($customer){
+                if(Hash::check($request->password , $customer->password)){
+                    $data['token']=$customer->createToken('hosp')->plainTextToken;
+                    $data['data']=$customer;
+                    return $this->sendResponse($data,"Customer login successfully");
+                }else
+                    return $this->sendError(['error'=>'email or password is not correct1'],"Unauthorized",400);
+               
+            }else
+                return $this->sendError(['error'=>'email or password is not correct3'],"Unauthorized",400);
+        }catch(Exception $e){
+            dd($e);
+             return $this->sendError(['error'=>'email or password is not correct4'],"Unauthorized",400);
         }
     }
 
