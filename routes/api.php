@@ -43,6 +43,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::controller(CustomerController::class)->group(function () {
     Route::post('cusregister', 'registerCustomer');
     Route::post('cuslogin', 'loginCustomer');
+    Route::get('customers', 'index');
 });
 
 
