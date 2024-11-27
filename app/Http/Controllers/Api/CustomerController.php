@@ -68,4 +68,20 @@ class CustomerController extends BaseController
             return $this->sendError(['error' => 'An error occurred while fetching customers'], "Error", 500);
         }
     }
+
+    // Fetch a specific customer by ID
+    public function show($id): JsonResponse
+    {
+        try {
+            $customer = Customer::find($id); // Find customer by ID
+
+            if (!$customer) {
+                return $this->sendError(['error' => 'Customer not found'], "Not Found", 404);
+            }
+
+            return $this->sendResponse($customer, "Customer fetched successfully");
+        } catch (Exception $e) {
+            return $this->sendError(['error' => 'An error occurred while fetching the customer'], "Error", 500);
+        }
+    }
 }

@@ -44,6 +44,7 @@ Route::controller(CustomerController::class)->group(function () {
     Route::post('cusregister', 'registerCustomer');
     Route::post('cuslogin', 'loginCustomer');
     Route::get('customers', 'index');
+    Route::get('customers/{id}', 'show'); //not working
 });
 
 
