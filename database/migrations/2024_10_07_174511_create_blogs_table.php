@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('author');
             $table->date('date');
+            $table->text('overview')->nullable(); // Blog overview or summary
+            $table->string('photo')->nullable(); // Path to the blog's photo
             $table->timestamps();
         });
     }
