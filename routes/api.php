@@ -118,6 +118,7 @@ Route::controller(AllorderController::class)->group(function(){
     Route::get('allorder/{allorder}','show');
     Route::post('allorder/edit/{id}','update');
     Route::delete('allorder/{allorder}','destroy');
+    Route::get('customer/{customer_id}/orders', 'getOrdersByCustomer');
 });
 
 Route::controller(Pagecontroller::class)->group(function(){
